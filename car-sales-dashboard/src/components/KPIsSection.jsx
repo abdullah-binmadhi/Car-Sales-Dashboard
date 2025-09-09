@@ -24,18 +24,34 @@ const AnimatedCounter = ({ value, duration = 1000 }) => {
   return <span>{displayValue.toLocaleString()}</span>;
 };
 
-// Metric card component
-const MetricCard = ({ title, value, prefix = '', suffix = '', description, color = 'blue' }) => {
+// Metric card component with enhanced styling
+const MetricCard = ({ title, value, prefix = '', suffix = '', description, color = 'blue', icon }) => {
   const colorClasses = {
     blue: 'bg-blue-500/20 border-blue-500/30 text-blue-400',
     green: 'bg-green-500/20 border-green-500/30 text-green-400',
     purple: 'bg-purple-500/20 border-purple-500/30 text-purple-400',
-    amber: 'bg-amber-500/20 border-amber-500/30 text-amber-400'
+    amber: 'bg-amber-500/20 border-amber-500/30 text-amber-400',
+    red: 'bg-red-500/20 border-red-500/30 text-red-400'
+  };
+  
+  const iconClasses = {
+    blue: 'text-blue-400',
+    green: 'text-green-400',
+    purple: 'text-purple-400',
+    amber: 'text-amber-400',
+    red: 'text-red-400'
   };
   
   return (
     <div className="glass rounded-2xl p-6 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 animate-stagger">
-      <h3 className="text-gray-400 text-sm font-medium mb-1">{title}</h3>
+      <div className="flex items-center justify-between">
+        <h3 className="text-gray-400 text-sm font-medium">{title}</h3>
+        {icon && (
+          <div className={`p-2 rounded-lg ${colorClasses[color].split(' ')[0]}`}>
+            <span className={`text-lg ${iconClasses[color]}`}>{icon}</span>
+          </div>
+        )}
+      </div>
       <div className={`text-3xl font-bold mb-2 ${colorClasses[color].split(' ')[2]}`}>
         {prefix}
         <AnimatedCounter value={value} />
@@ -46,11 +62,14 @@ const MetricCard = ({ title, value, prefix = '', suffix = '', description, color
   );
 };
 
-// Price range card component
+// Price range card component with enhanced styling
 const PriceRangeCard = ({ minPrice, maxPrice }) => {
   return (
-    <div className="glass rounded-2xl p-6 border border-gray-700/50 animate-stagger">
-      <h3 className="text-gray-400 text-sm font-medium mb-4">Price Range</h3>
+    <div className="glass rounded-2xl p-6 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 animate-stagger">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-gray-400 text-sm font-medium">Price Range</h3>
+        <span className="text-lg">💰</span>
+      </div>
       <div className="space-y-4">
         <div>
           <div className="flex justify-between text-sm mb-1">
@@ -81,15 +100,20 @@ const PriceRangeCard = ({ minPrice, maxPrice }) => {
   );
 };
 
-// Highlight card component
+// Highlight card component with enhanced styling
 const HighlightCard = ({ car }) => {
   if (!car) return null;
   
   return (
-    <div className="glass rounded-2xl p-6 border border-gray-700/50 animate-stagger">
-      <h3 className="text-gray-400 text-sm font-medium mb-4">Most Expensive Vehicle</h3>
+    <div className="glass rounded-2xl p-6 border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 animate-stagger">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-gray-400 text-sm font-medium">Most Expensive Vehicle</h3>
+        <span className="text-lg">🏆</span>
+      </div>
       <div className="flex items-center space-x-4">
-        <div className="bg-gray-700 border-2 border-dashed rounded-xl w-16 h-16" />
+        <div className="bg-gray-700 border-2 border-dashed rounded-xl w-16 h-16 flex items-center justify-center">
+          <span className="text-gray-400 text-xs">Car</span>
+        </div>
         <div className="flex-1">
           <h4 className="font-bold text-lg text-white">{car.companyName} {car.modelName}</h4>
           <p className="text-gray-400 text-sm">{car.engine} • {car.fuelType}</p>
@@ -110,6 +134,7 @@ const KPIsSection = () => {
         value={kpis.totalVehicles || 0} 
         description="in the dataset"
         color="blue"
+        icon="🚗"
       />
       
       <MetricCard 
@@ -118,6 +143,7 @@ const KPIsSection = () => {
         prefix="$"
         description="across all vehicles"
         color="green"
+        icon="💰"
       />
       
       <PriceRangeCard 

@@ -91,23 +91,48 @@ const DataTableSection = ({ onViewCar }) => {
   return (
     <div className="glass rounded-2xl border border-gray-700/50 overflow-hidden animate-stagger">
       <div className="p-6">
-        <h2 className="text-xl font-bold text-white mb-4">Vehicle Data</h2>
-        
-        {/* Table Controls */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
-          <div className="text-gray-400">
-            Showing {paginatedData.length} of {sortedData.length} vehicles
+          <div>
+            <h2 className="text-xl font-bold text-white">Vehicle Data</h2>
+            <p className="text-gray-400 text-sm">Detailed information about vehicles in the dataset</p>
           </div>
           <div className="flex space-x-2">
             <button 
-              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded text-sm"
+              className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded text-sm flex items-center"
               onClick={handleExportCSV}
             >
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
               Export CSV
             </button>
-            <button className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded text-sm">
+            <button className="px-3 py-1 bg-gray-700 hover:bg-gray-600 text-white rounded text-sm flex items-center">
+              <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
               Export PNG
             </button>
+          </div>
+        </div>
+        
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+          <div className="text-gray-400 text-sm">
+            Showing <span className="font-medium text-white">{paginatedData.length}</span> of{' '}
+            <span className="font-medium text-white">{sortedData.length}</span> vehicles
+          </div>
+          <div className="flex items-center space-x-2">
+            <span className="text-gray-400 text-sm">Items per page:</span>
+            <select 
+              className="bg-gray-700 text-white rounded px-2 py-1 text-sm"
+              value={itemsPerPage}
+              onChange={(e) => {
+                // This would require additional state management in a real implementation
+              }}
+            >
+              <option value="10">10</option>
+              <option value="25">25</option>
+              <option value="50">50</option>
+            </select>
           </div>
         </div>
       </div>
@@ -211,18 +236,28 @@ const DataTableSection = ({ onViewCar }) => {
                 <td className="px-6 py-4 whitespace-nowrap text-sm">
                   <div className="flex space-x-2">
                     <button 
-                      className="text-blue-400 hover:text-blue-300"
+                      className="text-blue-400 hover:text-blue-300 flex items-center"
                       onClick={() => handleViewCarAction(car)}
                     >
+                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
                       View
                     </button>
                     <button 
-                      className="text-green-400 hover:text-green-300"
+                      className="text-green-400 hover:text-green-300 flex items-center"
                       onClick={() => navigate('/compare')}
                     >
+                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                      </svg>
                       Compare
                     </button>
-                    <button className="text-yellow-400 hover:text-yellow-300">
+                    <button className="text-yellow-400 hover:text-yellow-300 flex items-center">
+                      <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                      </svg>
                       Favorite
                     </button>
                   </div>
@@ -236,18 +271,22 @@ const DataTableSection = ({ onViewCar }) => {
       {/* Pagination */}
       <div className="px-6 py-4 bg-gray-800/30 border-t border-gray-700/50 flex flex-col md:flex-row items-center justify-between">
         <div className="text-sm text-gray-400 mb-4 md:mb-0">
-          Page {currentPage} of {totalPages}
+          Page <span className="font-medium text-white">{currentPage}</span> of{' '}
+          <span className="font-medium text-white">{totalPages}</span>
         </div>
         <div className="flex space-x-2">
           <button
             onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
             disabled={currentPage === 1}
-            className={`px-3 py-1 rounded text-sm ${
+            className={`px-3 py-1 rounded text-sm flex items-center ${
               currentPage === 1 
                 ? 'bg-gray-700 text-gray-500 cursor-not-allowed' 
                 : 'bg-gray-700 hover:bg-gray-600 text-white'
             }`}
           >
+            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
             Previous
           </button>
           
@@ -274,13 +313,16 @@ const DataTableSection = ({ onViewCar }) => {
           <button
             onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
             disabled={currentPage === totalPages}
-            className={`px-3 py-1 rounded text-sm ${
+            className={`px-3 py-1 rounded text-sm flex items-center ${
               currentPage === totalPages 
                 ? 'bg-gray-700 text-gray-500 cursor-not-allowed' 
                 : 'bg-gray-700 hover:bg-gray-600 text-white'
             }`}
           >
             Next
+            <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </button>
         </div>
       </div>
