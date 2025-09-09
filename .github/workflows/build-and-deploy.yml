@@ -1,5 +1,6 @@
 name: Build and Deploy to GitHub Pages
 
+# Updated to fix base path issues
 on:
   push:
     branches: [ main ]
