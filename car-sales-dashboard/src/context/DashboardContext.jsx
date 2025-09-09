@@ -133,7 +133,7 @@ export const DashboardProvider = ({ children }) => {
         dispatch({ type: ACTIONS.SET_LOADING, payload: true });
         
         // Load data from the CSV file
-        const csvFilePath = '/Cars Datasets 2025.csv';
+        const csvFilePath = './Cars Datasets 2025.csv';
         const data = await loadCarData(csvFilePath);
         
         dispatch({ type: ACTIONS.SET_RAW_DATA, payload: data });
