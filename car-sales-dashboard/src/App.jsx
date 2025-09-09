@@ -52,6 +52,19 @@ function App() {
             </Routes>
           </Suspense>
         </div>
+        <footer className="max-w-7xl mx-auto mt-8 py-4 text-center text-gray-400 text-sm">
+          <p>
+            2025 Automotive Intelligence Dashboard •{' '}
+            <a 
+              href="https://github.com/abdullah-binmadhi/car-sales-dashboard" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-300 transition-colors duration-200"
+            >
+              View on GitHub
+            </a>
+          </p>
+        </footer>
       </div>
     </DashboardProvider>
   );

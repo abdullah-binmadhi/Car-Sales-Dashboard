@@ -35,7 +35,19 @@ const Header = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
               2025 Automotive Intelligence Dashboard
             </h1>
-            <p className="text-gray-300 mt-2">Comprehensive insights into the latest automotive market trends</p>
+            <p className="text-gray-300 mt-2">
+              Comprehensive insights into the latest automotive market trends
+              <span className="block text-sm mt-1">
+                <a 
+                  href="https://github.com/abdullah-binmadhi/car-sales-dashboard" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                >
+                  View on GitHub
+                </a>
+              </span>
+            </p>
           </div>
           
           {/* Metrics ticker */}
