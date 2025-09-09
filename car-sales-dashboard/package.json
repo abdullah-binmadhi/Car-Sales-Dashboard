@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://abdullah-binmadhi.github.io/car-sales-dashboard",
+  "homepage": "https://abdullah-binmadhi.github.io/Car-Sales-Dashboard",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
