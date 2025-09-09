@@ -1,5 +1,6 @@
 name: Build to Docs Folder
 
+# Updated for docs folder deployment
 on:
   push:
     branches: [ main ]
