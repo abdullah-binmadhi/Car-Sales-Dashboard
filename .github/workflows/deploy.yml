@@ -1,5 +1,6 @@
 name: Build and Deploy to GitHub Pages
 
+# Updated workflow to ensure proper deployment to GitHub Pages
 on:
   push:
     branches: [ main ]
