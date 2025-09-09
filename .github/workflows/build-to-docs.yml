@@ -1,6 +1,6 @@
 name: Build to Docs Folder
 
-# Updated for docs folder deployment
+# Updated for docs folder deployment - trigger build
 on:
   push:
     branches: [ main ]
