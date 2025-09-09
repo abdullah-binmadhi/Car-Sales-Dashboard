@@ -35,7 +35,8 @@ This repository contains a modern web dashboard for analyzing automotive market 
 
 - `car-sales-dashboard/` - Main dashboard application
 - `Cars Datasets 2025.csv` - Vehicle data source
+- `docs/` - Built application files for GitHub Pages deployment
 
 ## 🌍 Deployment
 
-The dashboard is automatically deployed to GitHub Pages using GitHub Actions whenever changes are pushed to the main branch.
+The dashboard is automatically built and deployed to GitHub Pages using GitHub Actions whenever changes are pushed to the main branch. The built files are copied to the `docs` folder which is served by GitHub Pages.
