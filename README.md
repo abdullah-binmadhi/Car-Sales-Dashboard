@@ -4,7 +4,7 @@ This repository contains a modern web dashboard for analyzing automotive market 
 
 ## 📊 Live Demo
 
-[View the Dashboard](https://abdullah-binmadhi.github.io/car-sales-dashboard/)
+[View the Dashboard](https://abdullah-binmadhi.github.io/Car-Sales-Dashboard/)
 
 ## 🚀 Quick Start
 

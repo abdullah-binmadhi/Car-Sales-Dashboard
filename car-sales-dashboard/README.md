@@ -151,7 +151,7 @@ To enable GitHub Pages deployment:
 3. Under "Source", select "GitHub Actions"
 4. Push changes to the main branch to trigger the deployment workflow
 
-The live demo can be viewed at: [https://abdullah-binmadhi.github.io/car-sales-dashboard/](https://abdullah-binmadhi.github.io/car-sales-dashboard/)
+The live demo can be viewed at: [https://abdullah-binmadhi.github.io/Car-Sales-Dashboard/](https://abdullah-binmadhi.github.io/Car-Sales-Dashboard/)
 
 ## 🧪 Testing
 
