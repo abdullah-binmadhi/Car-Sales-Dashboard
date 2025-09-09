@@ -133,6 +133,7 @@ export const DashboardProvider = ({ children }) => {
         dispatch({ type: ACTIONS.SET_LOADING, payload: true });
         
         // Load data from the CSV file
+        // Use relative path for both local development and deployment
         const csvFilePath = './Cars Datasets 2025.csv';
         const data = await loadCarData(csvFilePath);
         

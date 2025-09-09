@@ -112,19 +112,25 @@ export const processCarData = (rawData) => {
 // Function to load and parse CSV data
 export const loadCarData = async (filePath) => {
   return new Promise((resolve, reject) => {
+    console.log('Attempting to load CSV data from:', filePath);
+    
     Papa.parse(filePath, {
       download: true,
       header: true,
       skipEmptyLines: true,
       complete: (results) => {
         try {
+          console.log('CSV parsing complete. Raw data length:', results.data.length);
           const processedData = processCarData(results.data);
+          console.log('Processed data length:', processedData.length);
           resolve(processedData);
         } catch (error) {
+          console.error('Error processing data:', error);
           reject(error);
         }
       },
       error: (error) => {
+        console.error('Error loading CSV file:', error);
         reject(error);
       }
     });
